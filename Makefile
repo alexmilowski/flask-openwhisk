@@ -2,6 +2,10 @@ ACTION=flask
 
 all: build
 
+setup:
+	virtualenv virtualenv
+	. virtualenv/bin/activate; pip install -r requirements.txt
+
 build:
 	zip -r web.zip __main__.py web.py flaskwsk virtualenv/
 
