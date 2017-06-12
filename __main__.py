@@ -1,4 +1,4 @@
-from flaskwsk.handle import invoke
+from flaskwsk import invoke
 from web import app
 
 def main(args):

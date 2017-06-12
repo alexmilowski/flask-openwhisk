@@ -1,4 +1,4 @@
-from flaskwsk.handle import invoke
+from flaskwsk import invoke
 from web import app
 from base64 import b64encode, b64decode
 
