@@ -48,23 +48,29 @@ make create
 To test:
 
 ```bash
-curl  -v -X PUT -d "test" -H "Content-Type: text/plain" http://$APIHOST/api/v1/web/flask/echo
+export OPENWHISK=https://...
+curl  -v -X PUT -d "test" -H "Content-Type: text/plain" $OPENWHISK/flask/echo
 ```
+
+or:
+```bash
+make test OPENWHISK=https://...
+```
+
+where `OPENWHISK` is your server URL (e.g., `https://openwhisk.ng.bluemix.net/api/v1/web/...`)
 
 and you should see output like:
 
 ```json
 {
-  "data": "test",
   "headers": {
     "Accept": "*/*",
+    "Cache-Control": "no-transform",
     "Connection": "close",
-    "Content-Length": "4",
-    "Content-Type": "text/plain",
-    "Host": "n.n.n.n:10001",
+    "Host": "...",
     "User-Agent": "curl/7.53.1",
-    "Via": "1.1 DQAAABxhMzM-"
-  },
-  "method": "PUT"
+    ...
+  }, 
+  "method": "GET"
 }
 ```
